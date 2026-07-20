@@ -513,6 +513,14 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .footer-bottom{justify-content:center;text-align:center;flex-direction:column;gap:6px}
   footer{padding:44px 0 100px}
 
+  /* ---- Träffytor: allt klickbart minst 44px (WCAG 2.5.5) ---- */
+  footer ul a{display:inline-flex;align-items:center;min-height:44px;padding:2px 6px}
+  footer ul li{min-height:44px;display:flex;align-items:center;justify-content:center}
+  .svc-link{min-height:44px;padding:6px 0}
+  .ci-row a{min-height:44px;display:inline-flex;align-items:center}
+  .callstrip .cs-num{display:inline-flex;align-items:center;min-height:52px;padding:4px 10px}
+  .logo{min-height:44px;display:inline-flex;align-items:center}
+
   /* ---- Sticky ringknapp ---- */
   .callbar{transform:none;transition:none}
   .callbar .container{width:100%;flex-direction:column;gap:0;padding:0}
