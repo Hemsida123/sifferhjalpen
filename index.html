@@ -11,6 +11,7 @@
 <link rel="preload" as="image" href="https://sifferhjalpen.se/upload/puff/831118114.jpg" fetchpriority="high">
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600;700&display=swap" onload="this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600;700&display=swap"></noscript>
+<script>document.documentElement.className+=" js";</script>
 <style>
 :root{
   --green:#0d3b2e;
@@ -337,8 +338,11 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .contact .section-lead{color:rgba(255,255,255,.85)}
 
 /* ---------- Reveal ---------- */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
-.reveal.visible{opacity:1;transform:none}
+/* Innehållet är synligt som standard. Animationen slås på först när JS
+   satt .js på <html> – utan detta blir sidan tom om skriptet inte körs. */
+.reveal{opacity:1;transform:none}
+.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.js .reveal.visible{opacity:1;transform:none}
 .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
 
 /* ---------- Responsive ---------- */
