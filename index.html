@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sifferhjälpen | Din digitala redovisningsbyrå i Stockholm</title>
+<meta name="description" content="Sifferhjälpen – auktoriserad digital redovisningsbyrå med 15+ års erfarenhet. Bokföring, lönehantering, årsredovisning och rådgivning. Reko-betyg 4,8 av 5.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#0d3b2e;
+  --green-2:#0a2f25;
+  --green-3:#14503f;
+  --mint:#dff0e6;
+  --cream:#faf7f2;
+  --white:#ffffff;
+  --gold:#c9a227;
+  --gold-soft:#e8d9a8;
+  --ink:#1c2b26;
+  --muted:#5e6f68;
+  --line:#e6e1d7;
+  --radius:18px;
+  --shadow:0 24px 60px -28px rgba(13,59,46,.28);
+  --font-head:'Fraunces',serif;
+  --font-body:'Inter',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--cream);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.container{width:min(1180px,92%);margin-inline:auto}
+section{padding:104px 0}
+h1,h2,h3{font-family:var(--font-head);font-weight:600;line-height:1.12;color:var(--green)}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-weight:700;text-transform:uppercase;letter-spacing:.2em;font-size:.75rem;color:var(--gold);margin-bottom:16px}
+.kicker::before{content:"";width:30px;height:2px;background:var(--gold)}
+.section-title{font-size:clamp(2rem,4.2vw,3rem);margin-bottom:18px;letter-spacing:-.01em}
+.section-lead{max-width:620px;color:var(--muted);font-size:1.06rem}
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:1rem;padding:16px 32px;border-radius:99px;transition:.25s;cursor:pointer;border:0}
+.btn-primary{background:var(--green);color:var(--white)}
+.btn-primary:hover{background:var(--green-3);transform:translateY(-2px);box-shadow:0 14px 30px -12px rgba(13,59,46,.5)}
+.btn-gold{background:var(--gold);color:var(--green-2)}
+.btn-gold:hover{filter:brightness(1.07);transform:translateY(-2px);box-shadow:0 14px 30px -12px rgba(201,162,39,.55)}
+.btn-outline{border:1.5px solid rgba(255,255,255,.5);color:var(--white)}
+.btn-outline:hover{border-color:var(--gold-soft);color:var(--gold-soft);transform:translateY(-2px)}
+
+/* ---------- Header ---------- */
+header{position:fixed;inset:0 0 auto 0;z-index:100;transition:.3s}
+header.scrolled{background:rgba(250,247,242,.94);backdrop-filter:blur(14px);box-shadow:0 4px 24px rgba(13,59,46,.08)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:84px}
+.logo img{height:44px;width:auto}
+.logo .logo-dark{display:none}
+header.scrolled .logo .logo-light{display:none}
+header.scrolled .logo .logo-dark{display:block}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{font-weight:500;font-size:.93rem;color:var(--white);position:relative;padding:6px 0;transition:color .25s}
+header.scrolled .nav-links a{color:var(--ink)}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--gold);transition:width .25s}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.nav-cta{background:var(--gold);color:var(--green-2)!important;padding:11px 22px;border-radius:99px;font-weight:600}
+.nav-cta::after{display:none}
+.nav-cta:hover{filter:brightness(1.07)}
+.hamburger{display:none;background:none;border:0;cursor:pointer;width:44px;height:44px;position:relative;z-index:110}
+.hamburger span{display:block;width:26px;height:2.5px;background:var(--white);margin:5px auto;border-radius:2px;transition:.3s}
+header.scrolled .hamburger span{background:var(--green)}
+.hamburger.open span{background:var(--white)!important}
+.hamburger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;padding:150px 0 110px;background:
+  linear-gradient(112deg,rgba(8,38,29,.96) 0%,rgba(8,38,29,.82) 46%,rgba(8,38,29,.45) 100%),
+  url('https://sifferhjalpen.se/upload/puff/831118114.jpg') center/cover;color:var(--white)}
+.hero-inner{max-width:660px}
+.hero .eyebrow{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(8px);padding:9px 18px;border-radius:99px;font-size:.82rem;font-weight:600;margin-bottom:26px}
+.hero .eyebrow .stars{color:var(--gold);letter-spacing:2px}
+.hero h1{font-size:clamp(2.7rem,6vw,4.4rem);color:var(--white);margin-bottom:24px;letter-spacing:-.015em}
+.hero h1 em{font-style:italic;color:var(--gold-soft)}
+.hero p{font-size:1.14rem;color:rgba(255,255,255,.82);max-width:540px;margin-bottom:38px}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+.hero-trust{position:absolute;left:0;right:0;bottom:0;background:rgba(6,30,23,.65);backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,.1)}
+.hero-trust .container{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:26px 0}
+.trust-item{text-align:left}
+.trust-item strong{display:block;font-family:var(--font-head);font-size:1.9rem;color:var(--gold-soft);line-height:1.1}
+.trust-item span{font-size:.82rem;color:rgba(255,255,255,.72);text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+
+/* ---------- Tjänster ---------- */
+.services{background:var(--white)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:60px}
+.svc{background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:.3s}
+.svc:hover{transform:translateY(-8px);box-shadow:var(--shadow);border-color:rgba(201,162,39,.5)}
+.svc-img{height:190px;overflow:hidden;position:relative}
+.svc-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.svc:hover .svc-img img{transform:scale(1.07)}
+.svc-tag{position:absolute;top:14px;left:14px;background:var(--green);color:var(--gold-soft);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;padding:6px 13px;border-radius:99px}
+.svc-body{padding:28px 28px 30px;display:flex;flex-direction:column;flex:1}
+.svc h3{font-size:1.5rem;margin-bottom:10px}
+.svc p{color:var(--muted);font-size:.94rem;margin-bottom:16px}
+.svc ul{list-style:none;display:grid;gap:8px;margin-bottom:22px}
+.svc ul li{display:flex;gap:10px;align-items:flex-start;font-size:.9rem;color:var(--ink)}
+.svc ul svg{width:17px;height:17px;fill:var(--gold);flex-shrink:0;margin-top:4px}
+.svc-link{margin-top:auto;font-weight:600;color:var(--green);display:inline-flex;align-items:center;gap:8px;font-size:.95rem}
+.svc-link:hover{color:var(--gold);gap:12px}
+
+/* ---------- Digitalt (split) ---------- */
+.digital .container{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.digital-media{position:relative}
+.digital-media img{border-radius:var(--radius);box-shadow:var(--shadow);aspect-ratio:4/4.6;object-fit:cover;width:100%}
+.float-card{position:absolute;background:var(--white);border-radius:14px;box-shadow:0 18px 44px -18px rgba(13,59,46,.35);padding:18px 22px;display:flex;align-items:center;gap:14px}
+.float-card.fc1{bottom:34px;left:-34px}
+.float-card.fc2{top:30px;right:-26px}
+.fc-icon{width:44px;height:44px;border-radius:12px;background:var(--mint);display:grid;place-items:center}
+.fc-icon svg{width:22px;height:22px;fill:var(--green)}
+.float-card strong{display:block;font-size:.95rem;color:var(--green)}
+.float-card span{font-size:.78rem;color:var(--muted)}
+.digital h2{margin-bottom:18px}
+.digital .section-lead{margin-bottom:30px}
+
+/* ---------- Steg ---------- */
+.steps{background:var(--green);color:var(--white);position:relative;overflow:hidden}
+.steps::before{content:"01 02 03 04";position:absolute;font-family:var(--font-head);font-size:22rem;color:rgba(255,255,255,.03);top:-60px;left:-40px;white-space:nowrap;pointer-events:none}
+.steps h2,.steps h3{color:var(--white)}
+.steps .section-lead{color:rgba(255,255,255,.72)}
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:60px}
+.step{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);overflow:hidden;transition:.3s}
+.step:hover{transform:translateY(-6px);background:rgba(255,255,255,.09);border-color:rgba(201,162,39,.55)}
+.step-img{height:150px;overflow:hidden;position:relative}
+.step-img img{width:100%;height:100%;object-fit:cover;filter:saturate(.9)}
+.step-num{position:absolute;bottom:-22px;left:22px;width:48px;height:48px;border-radius:50%;background:var(--gold);color:var(--green-2);font-family:var(--font-head);font-weight:700;font-size:1.35rem;display:grid;place-items:center;border:4px solid var(--green)}
+.step-body{padding:38px 24px 28px}
+.step h3{font-size:1.3rem;margin-bottom:8px}
+.step p{color:rgba(255,255,255,.72);font-size:.9rem}
+.steps-cta{text-align:center;margin-top:56px}
+
+/* ---------- Varför ---------- */
+.why .container{display:grid;grid-template-columns:1fr 1.05fr;gap:70px;align-items:center}
+.why-media img{border-radius:var(--radius);box-shadow:var(--shadow);aspect-ratio:4/4.4;object-fit:cover;width:100%}
+.why-list{display:grid;gap:10px;margin-top:34px}
+.why-item{display:flex;gap:20px;padding:22px;border-radius:14px;transition:.25s;border:1px solid transparent}
+.why-item:hover{background:var(--white);border-color:var(--line);box-shadow:0 12px 32px -18px rgba(13,59,46,.25)}
+.why-icon{width:52px;height:52px;border-radius:14px;background:var(--mint);display:grid;place-items:center;flex-shrink:0}
+.why-icon svg{width:25px;height:25px;fill:var(--green)}
+.why-item h3{font-size:1.18rem;margin-bottom:4px}
+.why-item p{color:var(--muted);font-size:.92rem}
+
+/* ---------- Citat ---------- */
+.quote{background:var(--white);text-align:center;padding:90px 0}
+.quote blockquote{font-family:var(--font-head);font-size:clamp(1.5rem,3.2vw,2.3rem);font-style:italic;color:var(--green);max-width:820px;margin:0 auto 26px;line-height:1.35}
+.quote .stars{color:var(--gold);font-size:1.5rem;letter-spacing:6px;margin-bottom:22px}
+.quote cite{font-style:normal;color:var(--muted);font-size:.95rem;font-weight:600}
+
+/* ---------- Nyheter ---------- */
+.news{background:var(--cream)}
+.news-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.news-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:54px}
+.news-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px;display:flex;flex-direction:column;transition:.3s}
+.news-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:rgba(201,162,39,.5)}
+.news-date{font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);margin-bottom:12px}
+.news-card h3{font-size:1.13rem;margin-bottom:10px;line-height:1.3}
+.news-card p{color:var(--muted);font-size:.88rem;flex:1}
+.news-card .svc-link{margin-top:18px}
+
+/* ---------- Kontakt ---------- */
+.contact{background:var(--green);color:var(--white)}
+.contact .container{display:grid;grid-template-columns:1fr 1fr;gap:70px}
+.contact h2{color:var(--white)}
+.contact .section-lead{color:rgba(255,255,255,.75);margin-bottom:36px}
+.contact-info{display:grid;gap:6px}
+.ci-row{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.ci-row:last-child{border-bottom:0}
+.ci-icon{width:46px;height:46px;border-radius:12px;background:rgba(255,255,255,.08);display:grid;place-items:center;flex-shrink:0}
+.ci-icon svg{width:21px;height:21px;fill:var(--gold-soft)}
+.ci-row a,.ci-row span{color:rgba(255,255,255,.85);font-size:.98rem;font-weight:500}
+.ci-row a:hover{color:var(--gold-soft)}
+.offices{margin-top:26px;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:600}
+.form-card{background:var(--white);border-radius:var(--radius);padding:44px;color:var(--ink);box-shadow:0 30px 70px -30px rgba(0,0,0,.5)}
+.form-card h3{font-size:1.6rem;margin-bottom:6px}
+.form-card>p{color:var(--muted);font-size:.92rem;margin-bottom:26px}
+.form-grid{display:grid;gap:16px}
+.form-grid .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field label{display:block;font-size:.8rem;font-weight:600;margin-bottom:6px;color:var(--green)}
+.field input,.field textarea{width:100%;border:1.5px solid var(--line);border-radius:10px;padding:13px 16px;font-family:var(--font-body);font-size:.95rem;background:var(--cream);transition:border-color .2s;outline:none;resize:vertical}
+.field input:focus,.field textarea:focus{border-color:var(--gold)}
+.form-note{font-size:.78rem;color:var(--muted);margin-top:14px}
+
+/* ---------- Footer ---------- */
+footer{background:var(--green-2);color:rgba(255,255,255,.7);padding:64px 0 32px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:44px;margin-bottom:48px}
+.footer-grid .flogo img{height:42px;margin-bottom:18px}
+.footer-grid p{font-size:.9rem;max-width:300px}
+footer h4{font-family:var(--font-head);color:var(--white);font-size:1.1rem;margin-bottom:18px}
+footer ul{list-style:none;display:grid;gap:10px}
+footer ul a{font-size:.9rem;color:rgba(255,255,255,.65)}
+footer ul a:hover{color:var(--gold-soft)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.8rem;color:rgba(255,255,255,.45)}
+
+/* ---------- Reveal ---------- */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.reveal.visible{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+
+/* ---------- Responsive ---------- */
+@media(max-width:1020px){
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .news-grid,.steps-grid{grid-template-columns:repeat(2,1fr)}
+  .digital .container,.why .container,.contact .container{grid-template-columns:1fr;gap:60px}
+  .hero-trust .container{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .float-card.fc1{left:10px}.float-card.fc2{right:10px}
+}
+@media(max-width:700px){
+  section{padding:76px 0}
+  .services-grid,.news-grid,.steps-grid{grid-template-columns:1fr}
+  .hero{min-height:auto}
+  .form-grid .row2{grid-template-columns:1fr}
+  .form-card{padding:32px 24px}
+  .nav-links{position:fixed;inset:0;background:var(--green-2);flex-direction:column;justify-content:center;gap:26px;transform:translateX(100%);transition:transform .3s;z-index:105}
+  .nav-links.open{transform:none}
+  .nav-links a{color:var(--white)!important;font-size:1.25rem}
+  .hamburger{display:block}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header id="header">
+  <div class="container nav">
+    <a href="#start" class="logo">
+      <img class="logo-light" src="https://sifferhjalpen.se/Upload/logo/8390788.png" alt="Sifferhjälpen">
+      <img class="logo-dark" src="https://sifferhjalpen.se/Upload/logo/8390788.png" alt="Sifferhjälpen">
+    </a>
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#start">Start</a></li>
+        <li><a href="#tjanster">Våra tjänster</a></li>
+        <li><a href="#sa-funkar-det">Så funkar det</a></li>
+        <li><a href="#om-oss">Om oss</a></li>
+        <li><a href="#nyheter">Ekonominyheter</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="https://calendly.com/sifferhjalpen/10-minuters-mote" target="_blank" rel="noopener" class="nav-cta">Boka möte</a></li>
+      </ul>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Meny">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="start">
+  <div class="container">
+    <div class="hero-inner">
+      <span class="eyebrow"><span class="stars">★★★★★</span> 4,8 av 5 på Reco · Auktoriserad redovisningsbyrå</span>
+      <h1>Din digitala redovisningsbyrå – <em>med hjärtat på rätt ställe</em></h1>
+      <p>Vi tar hand om bokföring, löner, bokslut och rådgivning så att du kan fokusera på det du gör bäst: driva ditt företag. Snabbt. Enkelt. Digitalt.</p>
+      <div class="hero-actions">
+        <a href="#kontakt" class="btn btn-gold">Boka kostnadsfri rådgivning</a>
+        <a href="#tjanster" class="btn btn-outline">Utforska våra tjänster</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-trust">
+    <div class="container">
+      <div class="trust-item"><strong>4,8/5</strong><span>Reko-betyg</span></div>
+      <div class="trust-item"><strong>15+</strong><span>år i branschen</span></div>
+      <div class="trust-item"><strong>10+</strong><span>års erfarenhet per konsult</span></div>
+      <div class="trust-item"><strong>100%</strong><span>digitalt arbetssätt</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TJÄNSTER ============ -->
+<section class="services" id="tjanster">
+  <div class="container">
+    <div class="reveal">
+      <span class="kicker">Snabbt. Enkelt. Digitalt.</span>
+      <h2 class="section-title">Vi hjälper dig med alla dina siffror</h2>
+      <p class="section-lead">Från löpande bokföring till bokslut och lön – välj den nivå av hjälp som passar dig, alltid till ett fast månadspris.</p>
+    </div>
+    <div class="services-grid">
+      <article class="svc reveal">
+        <div class="svc-img"><span class="svc-tag">Populärast</span><img src="https://sifferhjalpen.se/upload/puff/812315915.webp" alt="Easy To Go – digital redovisning" loading="lazy"></div>
+        <div class="svc-body">
+          <h3>Easy To Go</h3>
+          <p>Arbeta 100 % digitalt! Godkänn fakturor, fota kvitton och skapa fakturor – vi löser resten.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>Digital helhetslösning</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>Följ din ekonomi i mobilen</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>Bokslut, årsredovisning &amp; deklaration</li>
+          </ul>
+          <a class="svc-link" href="https://sifferhjalpen.se/vara-tjanster/easy-to-go/" target="_blank" rel="noopener">Läs mer →</a>
+        </div>
+      </article>
+      <article class="svc reveal d1">
+        <div class="svc-img"><img src="https://sifferhjalpen.se/upload/puff/812331289.webp" alt="Löpande bokföring" loading="lazy"></div>
+        <div class="svc-body">
+          <h3>Bokföring</h3>
+          <p>Få hjälp med din löpande bokföring av våra erfarna experter.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>Digital och enkel bokföring</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>Personligt engagemang</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>Kvalificerad rådgivning</li>
+          </ul>
+          <a class="svc-link" href="https://sifferhjalpen.se/vara-tjanster/bokforing/" target="_blank" rel="noopener">Läs mer →</a>
+        </div>
+      </article>
+      <article class="svc reveal d2">
+        <div class="svc-img"><img src="https://sifferhjalpen.se/upload/puff/812337538.webp" alt="Lönehantering" loading="lazy"></div>
+        <div class="svc-body">
+          <h3>Lönehantering</h3>
+          <p>Låt oss effektivisera och digitalisera din löneadministration.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>Bättre kontroll</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>Spara tid</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>Molnbaserat lönesystem</li>
+          </ul>
+          <a class="svc-link" href="https://sifferhjalpen.se/vara-tjanster/lonehantering/" target="_blank" rel="noopener">Läs mer →</a>
+        </div>
+      </article>
+      <article class="svc reveal">
+        <div class="svc-img"><img src="https://sifferhjalpen.se/upload/puff/812340752.webp" alt="Årsredovisning" loading="lazy"></div>
+        <div class="svc-body">
+          <h3>Årsredovisning</h3>
+          <p>Vi hjälper dig med bokslut, årsredovisning och deklaration.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>Årsbokslut</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>Årsredovisning</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>Deklaration</li>
+          </ul>
+          <a class="svc-link" href="https://sifferhjalpen.se/vara-tjanster/arsredovisning/" target="_blank" rel="noopener">Läs mer →</a>
+        </div>
+      </article>
+      <article class="svc reveal d1">
+        <div class="svc-img"><img src="https://sifferhjalpen.se/upload/puff/812325183.webp" alt="Bokför själv" loading="lazy"></div>
+        <div class="svc-body">
+          <h3>Bokför själv</h3>
+          <p>Bokför själv och lämna deklaration och bokslut till oss.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>Telefonsupport</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>Avstämning kvartalsvis</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>Bokslut, årsredovisning och deklaration</li>
+          </ul>
+          <a class="svc-link" href="https://sifferhjalpen.se/vara-tjanster/bokfor-sjalv/" target="_blank" rel="noopener">Läs mer →</a>
+        </div>
+      </article>
+      <article class="svc reveal d2">
+        <div class="svc-img"><img src="https://sifferhjalpen.se/upload/puff/812347444.webp" alt="Support och rådgivning" loading="lazy"></div>
+        <div class="svc-body">
+          <h3>Support</h3>
+          <p>Fastnat i bokföringen? Boka support hos oss så hjälper vi dig lösa det.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>Effektivt</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>Personligt engagemang</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>Kvalificerad erfarenhet</li>
+          </ul>
+          <a class="svc-link" href="https://sifferhjalpen.se/vara-tjanster/support/" target="_blank" rel="noopener">Läs mer →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIGITALT / HELA SVERIGE ============ -->
+<section class="digital" id="om-oss">
+  <div class="container">
+    <div class="digital-media reveal">
+      <img src="https://sifferhjalpen.se/upload/puff/831115922.jpg" alt="Sifferhjälpen – personlig service" loading="lazy">
+      <div class="float-card fc1">
+        <div class="fc-icon"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5.25 3.4 10.15 8 11 4.6-.85 8-5.75 8-11V5l-8-3zm-1 14-4-4 1.4-1.4L11 13.2l5.6-5.6L18 9l-7 7z"/></svg></div>
+        <div><strong>Auktoriserad byrå</strong><span>Reko-betyg 4,8 av 5</span></div>
+      </div>
+      <div class="float-card fc2">
+        <div class="fc-icon"><svg viewBox="0 0 24 24"><path d="M17 1H7C5.9 1 5 1.9 5 3v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm-5 20c-.8 0-1.5-.7-1.5-1.5S11.2 18 12 18s1.5.7 1.5 1.5S12.8 21 12 21zm5-4H7V4h10v13z"/></svg></div>
+        <div><strong>Följ ekonomin i mobilen</strong><span>100 % digitalt</span></div>
+      </div>
+    </div>
+    <div class="reveal d1">
+      <span class="kicker">Redovisningsbyrå för hela Sverige</span>
+      <h2 class="section-title">Företagslivet ska vara enkelt – var du än befinner dig</h2>
+      <p class="section-lead">Vi har kontor i Stockholm, Kalmar och Karlskrona, men med vårt digitala arbetssätt spelar det ingen roll var i världen du befinner dig. Vi finns här för att stötta och hjälpa till – med ett leende på läpparna och expertis i bakfickan.</p>
+      <p class="section-lead" style="margin-top:14px">Nyfiken på hur en kombination av automatisering och personlig service kan förbättra din ekonomihantering?</p>
+      <div style="margin-top:32px"><a href="#kontakt" class="btn btn-primary">Boka kostnadsfri rådgivning</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SÅ FUNKAR DET ============ -->
+<section class="steps" id="sa-funkar-det">
+  <div class="container">
+    <div class="reveal">
+      <span class="kicker">Klara. Färdiga. Gå.</span>
+      <h2 class="section-title">Så enkelt är det att bli kund hos oss</h2>
+      <p class="section-lead">Fyra steg – sedan är du igång. Och du, vi bjuder på vår tid under uppstarten!</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step reveal">
+        <div class="step-img"><img src="https://sifferhjalpen.se/upload/puff/801520348.JPG" alt="Kontakta oss" loading="lazy"><span class="step-num">1</span></div>
+        <div class="step-body"><h3>Kontakta oss</h3><p>Vill du bli kund eller bara veta mer om hur ett samarbete skulle se ut och vad det kostar? Hör av dig!</p></div>
+      </div>
+      <div class="step reveal d1">
+        <div class="step-img"><img src="https://sifferhjalpen.se/upload/puff/791632727.JPG" alt="Digitalt möte" loading="lazy"><span class="step-num">2</span></div>
+        <div class="step-body"><h3>Digitalt möte</h3><p>Vi identifierar snabbt dina behov och presenterar en lösning med ett fast månadspris – anpassad efter din verksamhet.</p></div>
+      </div>
+      <div class="step reveal d2">
+        <div class="step-img"><img src="https://sifferhjalpen.se/upload/puff/801522171.JPG" alt="Offert" loading="lazy"><span class="step-num">3</span></div>
+        <div class="step-body"><h3>Offert</h3><p>Du får en tydlig offert med allt som ingår. När du bestämt dig signerar du enkelt med Mobilt BankID.</p></div>
+      </div>
+      <div class="step reveal d3">
+        <div class="step-img"><img src="https://sifferhjalpen.se/upload/puff/801528753.JPG" alt="Uppstart" loading="lazy"><span class="step-num">4</span></div>
+        <div class="step-body"><h3>Uppstart</h3><p>Vi hanterar hela bytet åt dig – från annan byrå eller egna system. Luta dig tillbaka, så blir livet enklare.</p></div>
+      </div>
+    </div>
+    <div class="steps-cta reveal"><a href="https://calendly.com/sifferhjalpen/10-minuters-mote" target="_blank" rel="noopener" class="btn btn-gold">Boka ett 10-minutersmöte</a></div>
+  </div>
+</section>
+
+<!-- ============ VARFÖR ============ -->
+<section class="why">
+  <div class="container">
+    <div class="reveal">
+      <span class="kicker">Varför välja Sifferhjälpen?</span>
+      <h2 class="section-title">Vi är inte som vanliga ekonomer</h2>
+      <div class="why-list">
+        <div class="why-item">
+          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 21.35 10.55 20C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+          <div><h3>Nöjda kunder</h3><p>Våra långvariga kunder talar för sig själva – och vårt Reko-betyg på 4,8 av 5 likaså. Vi gör alltid vårt bästa för att du ska vara nöjd.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 22C6.5 22 2 17.5 2 12S6.5 2 12 2s10 4.5 10 10-4.5 10-10 10zm1-15h-2v6l5.2 3.1 1-1.6-4.2-2.5V7z"/></svg></div>
+          <div><h3>Lång erfarenhet</h3><p>15 års erfarenhet sedan starten 2009 – och varje konsult har minst 10 år i branschen. Vi kan redovisning inifrån och ut.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
+          <div><h3>Personligt engagemang</h3><p>Ekonomisk rådgivning med ett leende på läpparna och en personlig touch – du pratar alltid med någon som kan din verksamhet.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M22.7 19 13.6 9.9c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg></div>
+          <div><h3>Skräddarsydda lösningar</h3><p>Varje företag är unikt. Vi hittar lösningar som passar just dig – aldrig standardpaket som inte sitter.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="why-media reveal d1">
+      <img src="https://sifferhjalpen.se/upload/puff/831118114.jpg" alt="Sifferhjälpen – varför välja oss" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ============ CITAT ============ -->
+<section class="quote">
+  <div class="container reveal">
+    <div class="stars">★★★★★</div>
+    <blockquote>"Om du vill ha hjälp med din redovisning och sova gott om natten – så är vi här för dig."</blockquote>
+    <cite>Sifferhjälpen · Auktoriserad redovisningsbyrå · Reko 4,8 av 5</cite>
+  </div>
+</section>
+
+<!-- ============ NYHETER ============ -->
+<section class="news" id="nyheter">
+  <div class="container">
+    <div class="news-head reveal">
+      <div>
+        <span class="kicker">Ekonominyheter</span>
+        <h2 class="section-title" style="margin-bottom:0">Håll dig uppdaterad med oss</h2>
+      </div>
+      <a href="https://sifferhjalpen.se/ekonominyheter/" target="_blank" rel="noopener" class="btn btn-primary">Fler nyheter</a>
+    </div>
+    <div class="news-grid">
+      <article class="news-card reveal">
+        <div class="news-date">17 mars 2025</div>
+        <h3>Avdragsregler för din interna konferens eller kurs</h3>
+        <p>En intern konferens eller kurs är en viktig del av företaget – här är allt du behöver veta om avdragen.</p>
+        <a class="svc-link" href="https://sifferhjalpen.se/ekonominyheter/e/6/avdragsregler-for-din-interna-konferens-eller-kurs-allt-du-behover-veta/" target="_blank" rel="noopener">Läs artikeln →</a>
+      </article>
+      <article class="news-card reveal d1">
+        <div class="news-date">17 mars 2025</div>
+        <h3>Vem ska skriva under årsredovisningen?</h3>
+        <p>När bokslutsåret avslutas och du upprättar årsredovisningen – vem är det egentligen som ska signera?</p>
+        <a class="svc-link" href="https://sifferhjalpen.se/ekonominyheter/e/5/vem-ska-skriva-under-arsredovisningen/" target="_blank" rel="noopener">Läs artikeln →</a>
+      </article>
+      <article class="news-card reveal d2">
+        <div class="news-date">17 mars 2025</div>
+        <h3>Nya regler för kvitton från 1 juli 2024</h3>
+        <p>Från den 1 juli 2024 infördes nya regler för kvitton som förändrar hur du hanterar underlag i bokföringen.</p>
+        <a class="svc-link" href="https://sifferhjalpen.se/ekonominyheter/e/4/nya-regler-for-kvitton-fran-och-med-1-juli-2024/" target="_blank" rel="noopener">Läs artikeln →</a>
+      </article>
+      <article class="news-card reveal d3">
+        <div class="news-date">17 mars 2025</div>
+        <h3>Uttag i aktiebolag – lön, lån eller utdelning?</h3>
+        <p>Som ägare i ett aktiebolag måste du vara noggrann med hur du tar ut pengar ur bolaget. Så gör du rätt.</p>
+        <a class="svc-link" href="https://sifferhjalpen.se/ekonominyheter/e/3/vad-galler-for-uttag-i-aktiebolag-ar-det-lon-lan-eller-utdelning/" target="_blank" rel="noopener">Läs artikeln →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KONTAKT ============ -->
+<section class="contact" id="kontakt">
+  <div class="container">
+    <div class="reveal">
+      <span class="kicker">Kontakta oss idag</span>
+      <h2 class="section-title">Låt oss underlätta ditt företagande</h2>
+      <p class="section-lead">Hos Sifferhjälpen får du en digital redovisningsbyrå med hjärtat på rätt ställe. Fyll i formuläret redan idag – så gör vi företagandet effektivare tillsammans!</p>
+      <div class="contact-info">
+        <div class="ci-row">
+          <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg></div>
+          <a href="tel:+46768376767">076-837 67 67</a>
+        </div>
+        <div class="ci-row">
+          <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+          <a href="mailto:info@sifferhjalpen.se">info@sifferhjalpen.se</a>
+        </div>
+        <div class="ci-row">
+          <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg></div>
+          <a href="https://calendly.com/sifferhjalpen/10-minuters-mote" target="_blank" rel="noopener">Boka ett 10-minutersmöte via Calendly</a>
+        </div>
+        <div class="ci-row">
+          <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5z"/></svg></div>
+          <span>Stockholm · Karlskrona · Kalmar · Torsås · Palma</span>
+        </div>
+      </div>
+    </div>
+    <div class="form-card reveal d1">
+      <h3>Boka kostnadsfri rådgivning</h3>
+      <p>Vi återkommer inom en arbetsdag.</p>
+      <form class="form-grid" action="mailto:info@sifferhjalpen.se" method="post" enctype="text/plain">
+        <div class="row2">
+          <div class="field"><label for="f-namn">Namn *</label><input id="f-namn" name="namn" type="text" required placeholder="Ditt namn"></div>
+          <div class="field"><label for="f-tel">Telefon</label><input id="f-tel" name="telefon" type="tel" placeholder="Ditt telefonnummer"></div>
+        </div>
+        <div class="field"><label for="f-epost">E-post *</label><input id="f-epost" name="epost" type="email" required placeholder="din@epost.se"></div>
+        <div class="field"><label for="f-medd">Meddelande</label><textarea id="f-medd" name="meddelande" rows="4" placeholder="Berätta kort om ditt företag och vad du behöver hjälp med"></textarea></div>
+        <button type="submit" class="btn btn-gold" style="justify-content:center">Skicka förfrågan</button>
+      </form>
+      <p class="form-note">Genom att skicka godkänner du att vi kontaktar dig angående din förfrågan.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="flogo">
+        <img src="https://sifferhjalpen.se/Upload/logo/8390788.png" alt="Sifferhjälpen">
+        <p>Din digitala redovisningsbyrå med över 15 års erfarenhet av bokföring, lönehantering och rådgivning. Auktoriserad byrå med Reko-betyg 4,8 av 5.</p>
+      </div>
+      <div>
+        <h4>Våra tjänster</h4>
+        <ul>
+          <li><a href="https://sifferhjalpen.se/vara-tjanster/bokforing/" target="_blank" rel="noopener">Bokföring</a></li>
+          <li><a href="https://sifferhjalpen.se/vara-tjanster/lonehantering/" target="_blank" rel="noopener">Lönehantering</a></li>
+          <li><a href="https://sifferhjalpen.se/vara-tjanster/arsredovisning/" target="_blank" rel="noopener">Årsredovisning</a></li>
+          <li><a href="https://sifferhjalpen.se/vara-tjanster/easy-to-go/" target="_blank" rel="noopener">Easy To Go</a></li>
+          <li><a href="https://sifferhjalpen.se/vara-tjanster/bokfor-sjalv/" target="_blank" rel="noopener">Bokför själv</a></li>
+          <li><a href="https://sifferhjalpen.se/vara-tjanster/support/" target="_blank" rel="noopener">Support &amp; rådgivning</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Våra kontor</h4>
+        <ul>
+          <li><a href="https://sifferhjalpen.se/vara-kontor/redovisningsbyra-stockholm/" target="_blank" rel="noopener">Stockholm</a></li>
+          <li><a href="https://sifferhjalpen.se/vara-kontor/redovisningsbyra-malmo/" target="_blank" rel="noopener">Malmö</a></li>
+          <li><a href="https://sifferhjalpen.se/vara-kontor/redovisningsbyra-karlskrona/" target="_blank" rel="noopener">Karlskrona</a></li>
+          <li><a href="https://sifferhjalpen.se/vara-kontor/redovisningsbyra-kalmar/" target="_blank" rel="noopener">Kalmar</a></li>
+          <li><a href="https://sifferhjalpen.se/vara-kontor/redovisningsbyra-torsas/" target="_blank" rel="noopener">Torsås</a></li>
+          <li><a href="https://sifferhjalpen.se/vara-kontor/redovisningsbyra-palma/" target="_blank" rel="noopener">Palma</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Sifferhjälpen</h4>
+        <ul>
+          <li><a href="https://sifferhjalpen.se/om-oss/" target="_blank" rel="noopener">Om oss</a></li>
+          <li><a href="https://sifferhjalpen.se/ekonominyheter/" target="_blank" rel="noopener">Ekonominyheter</a></li>
+          <li><a href="https://sifferhjalpen.se/karriar/" target="_blank" rel="noopener">Karriär</a></li>
+          <li><a href="https://sifferhjalpen.se/karriar/franchise/" target="_blank" rel="noopener">Franchise</a></li>
+          <li><a href="https://www.facebook.com/sifferhjalpen" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Sifferhjälpen. Alla rättigheter förbehållna.</span>
+      <span>Auktoriserad redovisningsbyrå · Reko 4,8/5</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Sticky header
+const header=document.getElementById('header');
+addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>40),{passive:true});
+
+// Mobile menu
+const burger=document.getElementById('hamburger'),links=document.getElementById('navLinks');
+burger.addEventListener('click',()=>{burger.classList.toggle('open');links.classList.toggle('open')});
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{burger.classList.remove('open');links.classList.remove('open')}));
+
+// Scroll reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// Active nav link
+const sections=document.querySelectorAll('section[id]');
+const navA=document.querySelectorAll('.nav-links a[href^="#"]');
+addEventListener('scroll',()=>{
+  let cur='';
+  sections.forEach(s=>{if(scrollY>=s.offsetTop-140)cur=s.id});
+  navA.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+},{passive:true});
+</script>
+</body>
+</html>
