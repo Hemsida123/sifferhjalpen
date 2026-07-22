@@ -552,18 +552,13 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 }
 </style>
 <style>
-/* Reco-banner under hero */
+/* Reco-banner under hero – transparent widget på mörk botten, ingen vit ruta */
 .reco-banner{background:var(--green-2);border-bottom:1px solid rgba(255,255,255,.08)}
-.reco-banner .container{display:flex;align-items:center;justify-content:center;gap:26px;padding:14px 0;flex-wrap:wrap}
-.reco-banner-text{display:inline-flex;align-items:center;gap:10px;color:rgba(255,255,255,.85);font-size:.95rem}
-.reco-banner-text .stars{color:var(--gold);letter-spacing:2px;font-size:.9rem}
-.reco-banner-text strong{color:var(--gold-soft)}
-.reco-banner-widget{width:340px;max-width:100%;height:52px;border:0;background:transparent}
-.reco-banner-link{font-size:.85rem;font-weight:600;color:var(--gold-soft);white-space:nowrap}
-.reco-banner-link:hover{color:var(--white)}
+.reco-banner-inner{display:block;width:min(1180px,92%);margin:0 auto;padding:6px 0;transition:opacity .2s}
+.reco-banner-inner:hover{opacity:.85}
+.reco-banner-widget{display:block;width:100%;height:64px;border:0;background:transparent;pointer-events:none}
 @media(max-width:760px){
-  .reco-banner .container{gap:10px;padding:16px 0;flex-direction:column;text-align:center}
-  .reco-banner-widget{display:none}
+  .reco-banner-widget{height:58px}
 }
 
 .crumb{background:var(--white);border-bottom:1px solid var(--line);font-size:.85rem;padding:14px 0}
@@ -675,14 +670,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 
 <!-- ============ RECO-BANNER ============ -->
 <div class="reco-banner">
-  <div class="container">
-    <div class="reco-banner-text">
-      <span class="stars" aria-hidden="true">★★★★★</span>
-      <span>Betygsatt av <strong>76 kunder</strong> på Reco</span>
-    </div>
-    <iframe title="Sifferhjälpens omdömen på Reco" class="reco-banner-widget" src="https://widget.reco.se/v2/venues/3358685/horizontal/large?inverted=false&amp;border=false" loading="lazy" scrolling="no"></iframe>
-    <a href="https://www.reco.se/sifferhjalpen-ekonomibyra-stockholm" target="_blank" rel="noopener" class="reco-banner-link">Läs omdömena →</a>
-  </div>
+  <a class="reco-banner-inner" href="https://www.reco.se/sifferhjalpen-ekonomibyra-stockholm" target="_blank" rel="noopener" aria-label="Läs Sifferhjälpens omdömen på Reco">
+    <iframe title="Sifferhjälpens omdömen på Reco" class="reco-banner-widget" src="https://widget.reco.se/v2/venues/3358685/horizontal/large?inverted=true&amp;border=false" loading="lazy" scrolling="no" tabindex="-1"></iframe>
+  </a>
 </div>
 
 <!-- ============ BREADCRUMB ============ -->
